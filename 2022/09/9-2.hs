@@ -1,3 +1,5 @@
+-- 9-2.hs - Robert Coffey - 2022-12-09
+
 import Data.List
 
 type Step = Char

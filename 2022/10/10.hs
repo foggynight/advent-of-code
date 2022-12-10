@@ -17,13 +17,13 @@ cycleValues :: Int -> [Int] -> [Int]
 cycleValues reg [] = [reg]
 cycleValues reg (x:xs) = reg : cycleValues (reg + x) xs
 
-raster :: [Int] -> String
-raster vs = raster' 0 vs
+rasterLine :: [Int] -> String
+rasterLine vs = rasterLine' 0 vs
 
-raster' :: Int -> [Int] -> String
-raster' pix (v:vs) = c : raster' (pix+1) vs
+rasterLine' :: Int -> [Int] -> String
+rasterLine' pix (v:vs) = c : rasterLine' (pix+1) vs
   where c = if abs (pix-v) > 1 then '.' else '#'
-raster' 40 _ = []
+rasterLine' 40 _ = []
 
 main :: IO ()
 main = do
@@ -40,5 +40,6 @@ main = do
   putStrLn $ "Part 1: " ++ show sigSum
 
   -- Part 2
-  let rows = map raster $ chop 40 values
+  let rows = map rasterLine $ chop 40 values
+  putStrLn "Part 2:"
   mapM_ (putStrLn . show) rows
