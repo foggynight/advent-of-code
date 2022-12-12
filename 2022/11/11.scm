@@ -96,7 +96,6 @@
     (printf "Round ~A...\n" (+ i 1))
     (update-monkeys! monkeys prod)
     (print-monkeys monkeys))
-  (printf "Part 2: ~A\n" (monkey-business monkeys))
-  )
+  (printf "Part 2: ~A\n" (monkey-business monkeys)))
 
 (main "11.dat")
